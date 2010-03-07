@@ -23,8 +23,9 @@ def _gen_link(name, wiki_info):
 parsers = {}
 def get_parser(wiki_info):
     parser = None
-    if wiki_info['wiki_id'] in parsers:
-        parser = parsers[wiki_info['wiki_id']]
+    wiki_id = wiki_info['wiki_id']
+    if wiki_id in parsers:
+        parser = parsers[wiki_id]
     else:
         parser = Parser(create_dialect(
             creole11_base,
@@ -33,7 +34,7 @@ def get_parser(wiki_info):
             wiki_links_class_func = (lambda p: '' if page_exists(wiki_id, p) else 'create'),
             wiki_links_path_func  = (lambda n: _gen_link(n, wiki_info))
         ), 'xhtml', True, 'utf-8')
-        parsers[wiki_info['wiki_id']] = parser
+        parsers[wiki_id] = parser
     return parser
 
 def page_exists(wiki_info, name):
