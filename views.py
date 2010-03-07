@@ -15,7 +15,7 @@ from creoleparser.dialects import create_dialect, creole11_base
 def _gen_link(name, wiki_info):
     name = canonicalize_name(name)
     pageloc = wiki_info['pageloc']
-    if page_exists(name):
+    if page_exists(wiki_info, name):
         return pageloc(name)
     else:
         return pageloc(name) + '?a=edit'
