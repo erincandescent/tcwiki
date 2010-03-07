@@ -31,7 +31,7 @@ def get_parser(wiki_info):
             creole11_base,
             wiki_links_base_url   = '',
             wiki_links_space_char = '_',
-            wiki_links_class_func = (lambda p: '' if page_exists(wiki_id, p) else 'create'),
+            wiki_links_class_func = (lambda p: '' if page_exists(wiki_info, p) else 'create'),
             wiki_links_path_func  = (lambda n: _gen_link(n, wiki_info))
         ), 'xhtml', True, 'utf-8')
         parsers[wiki_id] = parser
