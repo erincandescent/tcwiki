@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-from setuptools import setup
+from setuptools import setup, find_packages 
  
 version = '0.1'
  
@@ -13,10 +13,11 @@ setup(
     author = 'Element43 & EForge Project',
     author_email = 'support@e43.eu',
     url = '',
-    zip_safe = True,
+    zip_safe = False,
+    packages = find_packages(),
     include_package_data = True,
     install_requires = [
-	"django>=1.2.1",
+        "django>=1.2.1",
         "creoleparser>=0.7.2"
     ],
     classifiers=[
